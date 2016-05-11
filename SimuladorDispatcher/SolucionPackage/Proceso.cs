@@ -17,6 +17,7 @@ namespace SimuladorDispatcher.SolucionPackage
         {
 
             this.Tiempo = tiempo;
+            Estado = "Listo";
 
         }
         public string Id
