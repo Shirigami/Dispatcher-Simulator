@@ -12,8 +12,8 @@ namespace SimuladorDispatcher.SolucionPackage
 
         public ProcesoC(int tiempo) : base (tiempo)
         {
-            base.id = "C" + cantInstancias;
-            cantInstancias++;
+            base.id = "C" + cantidadInstancias;
+            cantidadInstancias++;
         }
 
         public override string ejecutar()

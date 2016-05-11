@@ -19,7 +19,7 @@ namespace SimuladorDispatcher.SolucionPackage
             this.Tiempo = tiempo;
 
         }
-        public int Id
+        public string Id
         {
             get
             {

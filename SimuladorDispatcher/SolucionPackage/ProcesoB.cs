@@ -9,17 +9,25 @@ namespace SimuladorDispatcher.SolucionPackage
     class ProcesoB : Proceso
     {
         int cantidadInstancias = 0;
+        int tiemposDispatcher = 0;
 
         public ProcesoB(int tiempo) : base (tiempo)
         {
-            base.id = "B" + cantInstancias;
-            cantInstancias++;
+            base.id = "B" + cantidadInstancias;
+            cantidadInstancias++;
         }
 
         public override string ejecutar()
         {
-            string x = "";
-            return x;
+            if (tiemposDispatcher == 5)
+            {
+                return "-1";
+            }
+
+            tiemposDispatcher++;
+            return tiemposDispatcher.ToString();
+
+
 
         }
 

@@ -10,21 +10,22 @@ using System.Windows.Forms;
 using System.Collections; 
 namespace SolucionPackage
 {
-    public partial class Form1 : Form
+    public partial class VentanaPrincipal : Form
     {
+
         Queue ready;
-        public Form1()
+        Queue blocked;
+        public VentanaPrincipal()
         {
             InitializeComponent();
             ready = new Queue();
+            blocked = new Queue();
         }
 
         private void btnCrearProceso_Click(object sender, EventArgs e)
         {
-            ready.Enqueue("s");
-            ready.Enqueue("ss");
 
-            //procesos.DataSource=ready.ToArray();
+            ready.Enqueue(nombreProceso.SelectedItem.ToString()+duracion.Value.ToString());
             procesos.Rows.Add(nombreProceso.SelectedItem, duracion.Value);
         }
 
@@ -36,6 +37,11 @@ namespace SolucionPackage
             timer1.Start();
             barraProgreso.Minimum = 0;
             barraProgreso.Value = 0;
+
+            this.dataGridView1.RowCount = this.ready.Count+1;
+            MessageBox.Show("Proceso: "+ ready.Dequeue().ToString()+" en ejecución.");
+            MessageBox.Show(ready.Count.ToString());
+
         }
 
         int segundos = 0;
@@ -56,6 +62,7 @@ namespace SolucionPackage
                 timer1.Stop();
             }
         }
+
 
     }
 }

@@ -15,14 +15,15 @@ namespace SimuladorDispatcher.SolucionPackage
         
         public ProcesoA(int tiempo) : base (tiempo)
         {
-            base.id = "A" + cantInstancias;
-            cantInstancias++;
+            base.id = "A" + cantidadInstancias;
+            cantidadInstancias++;
         }
 
         public override string ejecutar()
         {
-            string x = "";
-            return x;
+            int x = 3;
+            int y = 5;
+            return (x + y).ToString() ;
         }
 
 
