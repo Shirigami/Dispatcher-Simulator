@@ -54,6 +54,9 @@
     </Compile>
     <Compile Include="SolucionPackage\Form1.Designer.cs" />
     <Compile Include="SolucionPackage\Proceso.cs" />
+    <Compile Include="SolucionPackage\ProcesoA.cs" />
+    <Compile Include="SolucionPackage\ProcesoB.cs" />
+    <Compile Include="SolucionPackage\ProcesoC.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

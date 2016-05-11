@@ -6,21 +6,18 @@ using System.Threading.Tasks;
 
 namespace SimuladorDispatcher.SolucionPackage
 {
-    public class Proceso
+    public abstract class Proceso
     {
-        static int cantInstancias = 0;
-        int id;
-        string estado;
-        int tiempo;
-        string tipo;
+        protected static int cantInstancias = 0;
+        protected string id;
+        protected string estado;
+        protected int tiempo;
 
-        public Proceso(string estado, int tiempo, string tipo)
+        public Proceso(int tiempo)
         {
-            id = cantInstancias;
-            cantInstancias++;
-            this.Estado = estado;
+
             this.Tiempo = tiempo;
-            this.Tipo = tipo;
+
         }
         public int Id
         {
@@ -54,18 +51,9 @@ namespace SimuladorDispatcher.SolucionPackage
             }
 
         }
-        public string Tipo
-        {
-            get
-            {
-                return tipo;
-            }
-            set
-            {
-                tipo = value;
-            }
 
-        }
+        public abstract string ejecutar();
+
     }
 
 
