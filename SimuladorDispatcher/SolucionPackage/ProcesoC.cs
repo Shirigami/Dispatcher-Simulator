@@ -18,7 +18,7 @@ namespace SimuladorDispatcher.SolucionPackage
 
         public override string ejecutar()
         {
-            string x = "";
+            string x = "Usando el audio";
             return x;
         }
 

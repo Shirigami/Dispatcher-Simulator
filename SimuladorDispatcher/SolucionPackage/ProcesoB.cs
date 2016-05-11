@@ -21,13 +21,12 @@ namespace SimuladorDispatcher.SolucionPackage
         {
             if (tiemposDispatcher == 5)
             {
+                Estado = "Terminado";
                 return "-1";
             }
 
             tiemposDispatcher++;
             return tiemposDispatcher.ToString();
-
-
 
         }
 

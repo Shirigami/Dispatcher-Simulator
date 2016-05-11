@@ -23,7 +23,8 @@ namespace SimuladorDispatcher.SolucionPackage
         {
             int x = 3;
             int y = 5;
-            return (x + y).ToString() ;
+            int resultado = x + y;
+            return x.ToString() + " " + y.ToString()  + " = " + resultado.ToString();
         }
 
 
