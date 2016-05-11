@@ -8,7 +8,7 @@ namespace SimuladorDispatcher.SolucionPackage
 {
     class ProcesoC : Proceso
     {
-        int cantidadInstancias = 0;
+        static int cantidadInstancias = 1;
 
         public ProcesoC(int tiempo) : base (tiempo)
         {

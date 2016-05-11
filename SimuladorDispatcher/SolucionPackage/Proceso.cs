@@ -8,7 +8,6 @@ namespace SimuladorDispatcher.SolucionPackage
 {
     public abstract class Proceso
     {
-        protected static int cantInstancias = 0;
         protected string id;
         protected string estado;
         protected int tiempo;
