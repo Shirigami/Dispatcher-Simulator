@@ -18,7 +18,8 @@ namespace SimuladorDispatcher.SolucionPackage
 
         public override string ejecutar()
         {
-
+            string x = "";
+            return x;
 
         }
 
