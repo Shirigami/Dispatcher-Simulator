@@ -13,7 +13,7 @@ namespace SolucionPackage
 {
     public partial class VentanaPrincipal : Form
     {
-
+        Proceso dequ;
         Queue<Proceso> ready;
         Queue<Proceso> blocked;
         public VentanaPrincipal()
@@ -46,28 +46,30 @@ namespace SolucionPackage
 
         private void ejecutar_Click(object sender, EventArgs e)
         {
-            Proceso dequ = ready.Dequeue();
-            tiempo.Text = "0";
-            this.segundos = 1;
-            timer1.Enabled = true;
-            timer1.Start();
-            barraProgreso.Minimum = 0;
-            barraProgreso.Value = 0;
 
-            this.dataGridView1.RowCount = this.ready.Count+1;
-            MessageBox.Show("Proceso: " + dequ.Id+ " en ejecución.");
-          //  this.dataGridView1.Rows.RemoveAt(this.dataGridView1.Rows.IndexOf());
-            MessageBox.Show(ready.Count.ToString());
+            while (ready.Count!=0) {
+                MessageBox.Show(this.ready.Count.ToString());
+                dequ = ready.Dequeue();
+                tiempo.Text = "0";
+                this.segundos = 1;
+                timer1.Enabled = true;
+                timer1.Start();
+                barraProgreso.Minimum = 0;
+                barraProgreso.Value = 0;
+                this.label7.Text = dequ.Id;
+                progreso(Convert.ToInt32(duracion.Value));
+                //this.procesos.Rows.RemoveAt(1);
+            }
 
         }
 
         int segundos = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            progreso(Convert.ToInt32(duracion.Value), dequ.Id);
+            progreso(Convert.ToInt32(duracion.Value));
         }
 
-        private void progreso(int valor,string proceso) {
+        private void progreso(int valor) {
             tiempo.Text = Convert.ToString(segundos++);
             barraProgreso.Minimum = 1;
             barraProgreso.Maximum = Convert.ToInt32(duracion.Value);
@@ -75,7 +77,8 @@ namespace SolucionPackage
             barraProgreso.PerformStep();
             if (segundos > valor)
             {
-                tiempo.Text = "Proceso " + proceso + " terminado";
+                tiempo.Text = "Proceso " + dequ.Id + " terminado";
+
                 timer1.Stop();
             }
         }
