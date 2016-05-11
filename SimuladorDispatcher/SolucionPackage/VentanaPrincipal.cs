@@ -7,26 +7,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Collections; 
+using System.Collections;
+using SimuladorDispatcher.SolucionPackage; 
 namespace SolucionPackage
 {
     public partial class VentanaPrincipal : Form
     {
 
-        Queue ready;
-        Queue blocked;
+        Queue<Proceso> ready;
+        Queue<Proceso> blocked;
         public VentanaPrincipal()
         {
             InitializeComponent();
-            ready = new Queue();
-            blocked = new Queue();
+            ready = new Queue<Proceso>();
+            blocked = new Queue<Proceso>();
         }
 
         private void btnCrearProceso_Click(object sender, EventArgs e)
         {
+            Proceso prcs;
+            MessageBox.Show(this.nombreProceso.SelectedIndex.ToString());
+            if (this.nombreProceso.SelectedIndex == 0)
+            {
+                prcs = new ProcesoA((int)this.duracion.Value);
+            }
 
-            ready.Enqueue(nombreProceso.SelectedItem.ToString()+duracion.Value.ToString());
-            procesos.Rows.Add(nombreProceso.SelectedItem, duracion.Value);
+            else if (this.nombreProceso.SelectedIndex == 1)
+            {
+                prcs = new ProcesoB((int)this.duracion.Value);
+            }
+            else
+            {
+                prcs = new ProcesoC((int)this.duracion.Value);
+            }
+            ready.Enqueue(prcs);
+            procesos.Rows.Add(prcs.Id, prcs.Tiempo);
         }
 
         private void ejecutar_Click(object sender, EventArgs e)
@@ -40,6 +55,7 @@ namespace SolucionPackage
 
             this.dataGridView1.RowCount = this.ready.Count+1;
             MessageBox.Show("Proceso: "+ ready.Dequeue().ToString()+" en ejecución.");
+          //  this.dataGridView1.Rows.RemoveAt(this.dataGridView1.Rows.IndexOf());
             MessageBox.Show(ready.Count.ToString());
 
         }

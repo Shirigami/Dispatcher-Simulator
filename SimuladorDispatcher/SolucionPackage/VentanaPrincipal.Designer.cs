@@ -174,20 +174,25 @@
             // 
             this.duracionPBloqueado.HeaderText = "Duración";
             this.duracionPBloqueado.Name = "duracionPBloqueado";
+            this.duracionPBloqueado.ReadOnly = true;
             // 
             // NombrePBloqueado
             // 
             this.NombrePBloqueado.HeaderText = "ID";
             this.NombrePBloqueado.Name = "NombrePBloqueado";
+            this.NombrePBloqueado.ReadOnly = true;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NombrePBloqueado,
             this.duracionPBloqueado});
             this.dataGridView1.Location = new System.Drawing.Point(52, 359);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(240, 150);
             this.dataGridView1.TabIndex = 5;
             // 
@@ -195,20 +200,25 @@
             // 
             this.duracionP.HeaderText = "Duración";
             this.duracionP.Name = "duracionP";
+            this.duracionP.ReadOnly = true;
             // 
             // Nombre
             // 
             this.Nombre.HeaderText = "ID";
             this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
             // 
             // procesos
             // 
+            this.procesos.AllowUserToAddRows = false;
+            this.procesos.AllowUserToDeleteRows = false;
             this.procesos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.procesos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre,
             this.duracionP});
             this.procesos.Location = new System.Drawing.Point(52, 169);
             this.procesos.Name = "procesos";
+            this.procesos.ReadOnly = true;
             this.procesos.Size = new System.Drawing.Size(244, 140);
             this.procesos.TabIndex = 3;
             // 
@@ -230,7 +240,7 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Cola de procesos bloqueados";
             // 
-            // Form1
+            // VentanaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -245,7 +255,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.procesos);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Form1";
+            this.Name = "VentanaPrincipal";
             this.Text = "Simulación de Procesos";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
