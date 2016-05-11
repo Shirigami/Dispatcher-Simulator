@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SolucionPackage\Log.cs" />
     <Compile Include="SolucionPackage\Proceso.cs" />
     <Compile Include="SolucionPackage\ProcesoA.cs" />
     <Compile Include="SolucionPackage\ProcesoB.cs" />
