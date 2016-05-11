@@ -17,6 +17,7 @@ namespace SimuladorDispatcher.SolucionPackage
         {
             base.id = "A" + cantidadInstancias;
             cantidadInstancias++;
+
         }
 
         public override string ejecutar()
