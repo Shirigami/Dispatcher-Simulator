@@ -7,18 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Collections; 
 namespace SolucionPackage
 {
     public partial class Form1 : Form
     {
+        Queue ready;
         public Form1()
         {
             InitializeComponent();
+            ready = new Queue();
         }
 
         private void btnCrearProceso_Click(object sender, EventArgs e)
         {
+            ready.Enqueue("s");
+            ready.Enqueue("ss");
+
+            //procesos.DataSource=ready.ToArray();
             procesos.Rows.Add(nombreProceso.SelectedItem, duracion.Value);
         }
 
