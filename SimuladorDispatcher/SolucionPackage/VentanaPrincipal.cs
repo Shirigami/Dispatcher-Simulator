@@ -64,7 +64,7 @@ namespace SolucionPackage
            
         }
 
-        int segundos = 0;
+        int segundos = 1;
         private void timer1_Tick(object sender, EventArgs e)
         {
             progreso(Convert.ToInt32(dequ.Tiempo), sender, e);
@@ -74,10 +74,10 @@ namespace SolucionPackage
         {
             tiempo.Text = Convert.ToString(segundos++);
             barraProgreso.Minimum = 1;
-            barraProgreso.Maximum = Convert.ToInt32(valor);
+            barraProgreso.Maximum = Convert.ToInt32(valor+1);
             barraProgreso.Step = 1;
             barraProgreso.PerformStep();
-            if (segundos > valor)
+            if (segundos > valor+1)
             {
                 //this.dequ.ejecutar();
                 tiempo.Text = "Proceso " + dequ.Id + " terminado";
