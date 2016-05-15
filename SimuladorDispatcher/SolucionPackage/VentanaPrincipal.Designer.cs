@@ -87,6 +87,7 @@
             // 
             // nombreProceso
             // 
+            this.nombreProceso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.nombreProceso.FormattingEnabled = true;
             this.nombreProceso.Items.AddRange(new object[] {
             "A",
@@ -264,7 +265,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(753, 505);
+            this.ClientSize = new System.Drawing.Size(794, 559);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
