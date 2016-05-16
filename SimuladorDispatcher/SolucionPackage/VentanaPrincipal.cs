@@ -18,6 +18,7 @@ namespace SolucionPackage
         Proceso dequ;
         Queue<Proceso> ready;
         Queue<Proceso> blocked;
+        Log log;
         public VentanaPrincipal()
         {
             InitializeComponent();
@@ -25,6 +26,7 @@ namespace SolucionPackage
             blocked = new Queue<Proceso>();
             isRecursoOccup = false;
             semaforo.BackColor = System.Drawing.Color.Green;
+            log = new Log();
         }
 
         private void btnCrearProceso_Click(object sender, EventArgs e)
@@ -46,10 +48,12 @@ namespace SolucionPackage
             }
             ready.Enqueue(prcs);
             procesos.Rows.Add(prcs.Id, prcs.Tiempo, prcs.TiemposDispatcher);
+            this.log.addLog(prcs);
         }
 
         private void ejecutar_Click(object sender, EventArgs e)
         {
+            
             button1.Enabled = false;
             dequ = ready.Dequeue();
             //MessageBox.Show(dequ.GetType().ToString());
@@ -96,6 +100,7 @@ namespace SolucionPackage
             if (segundos > valor+1)
             {
                 this.dequ.ejecutar();
+                log.addLog(dequ);
                 // MessageBox.Show(dequ.Estado);
                 //tiempo.Text = "Proceso " + dequ.Id + " terminado";
                 
