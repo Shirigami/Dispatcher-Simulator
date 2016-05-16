@@ -35,6 +35,10 @@ namespace SimuladorDispatcher.SolucionPackage
             {
                 return tiemposDispatcher;
             }
+            set
+            {
+                tiemposDispatcher = value;
+            }
 
         }
         public string Estado

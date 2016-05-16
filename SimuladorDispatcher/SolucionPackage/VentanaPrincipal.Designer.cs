@@ -50,10 +50,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.semaforo = new System.Windows.Forms.PictureBox();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.duracionP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vecesDispatcher = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.semaforo = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.duracion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -239,6 +239,16 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "0";
             // 
+            // semaforo
+            // 
+            this.semaforo.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.semaforo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.semaforo.Location = new System.Drawing.Point(733, 318);
+            this.semaforo.Name = "semaforo";
+            this.semaforo.Size = new System.Drawing.Size(40, 43);
+            this.semaforo.TabIndex = 15;
+            this.semaforo.TabStop = false;
+            // 
             // Nombre
             // 
             this.Nombre.HeaderText = "ID";
@@ -253,19 +263,9 @@
             // 
             // vecesDispatcher
             // 
-            this.vecesDispatcher.HeaderText = "Veces Dispatcher";
+            this.vecesDispatcher.HeaderText = "Veces Ejecutadas";
             this.vecesDispatcher.Name = "vecesDispatcher";
             this.vecesDispatcher.ReadOnly = true;
-            // 
-            // semaforo
-            // 
-            this.semaforo.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.semaforo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.semaforo.Location = new System.Drawing.Point(733, 318);
-            this.semaforo.Name = "semaforo";
-            this.semaforo.Size = new System.Drawing.Size(40, 43);
-            this.semaforo.TabIndex = 15;
-            this.semaforo.TabStop = false;
             // 
             // VentanaPrincipal
             // 
@@ -317,10 +317,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox semaforo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn duracionP;
         private System.Windows.Forms.DataGridViewTextBoxColumn vecesDispatcher;
-        private System.Windows.Forms.PictureBox semaforo;
     }
 }
 

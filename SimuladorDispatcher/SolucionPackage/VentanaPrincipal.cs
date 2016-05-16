@@ -24,6 +24,7 @@ namespace SolucionPackage
             ready = new Queue<Proceso>();
             blocked = new Queue<Proceso>();
             isRecursoOccup = false;
+            semaforo.BackColor = System.Drawing.Color.Green;
         }
 
         private void btnCrearProceso_Click(object sender, EventArgs e)
@@ -44,7 +45,7 @@ namespace SolucionPackage
                 prcs = new ProcesoC((int)this.duracion.Value);
             }
             ready.Enqueue(prcs);
-            procesos.Rows.Add(prcs.Id, prcs.Tiempo);
+            procesos.Rows.Add(prcs.Id, prcs.Tiempo, prcs.TiemposDispatcher);
         }
 
         private void ejecutar_Click(object sender, EventArgs e)
@@ -67,9 +68,10 @@ namespace SolucionPackage
             if (dequ is ProcesoC && this.isRecursoOccup == false)
             {
                 this.isRecursoOccup = true;
+                semaforo.BackColor = System.Drawing.Color.Red;
             }
 
-            dequ.ejecutar();
+           // dequ.ejecutar();
             timer1.Enabled = true;
             timer1.Start();
             reinit();
@@ -93,7 +95,7 @@ namespace SolucionPackage
             barraProgreso.PerformStep();
             if (segundos > valor+1)
             {
-                //this.dequ.ejecutar();
+                this.dequ.ejecutar();
                 // MessageBox.Show(dequ.Estado);
                 //tiempo.Text = "Proceso " + dequ.Id + " terminado";
                 
@@ -103,7 +105,7 @@ namespace SolucionPackage
                 if (dequ.Estado == "Listo" || dequ.Estado == "Reservado")
                 {
                     //MessageBox.Show("Entre");
-                    this.procesos.Rows.Add(dequ.Id, dequ.Tiempo);
+                    this.procesos.Rows.Add(dequ.Id, dequ.Tiempo, dequ.TiemposDispatcher);
                     ready.Enqueue(dequ);
              
                 }
@@ -111,12 +113,13 @@ namespace SolucionPackage
                 if(dequ is ProcesoC && dequ.Estado == "Terminado")
                 {
                     isRecursoOccup = false;
+                    semaforo.BackColor = System.Drawing.Color.Green;
                     if (blocked.Count != 0)
                     {
                         Proceso procesBloqued = blocked.Dequeue();
                         this.dataGridView1.Rows.RemoveAt(0);
                         ready.Enqueue(procesBloqued);
-                        this.procesos.Rows.Add(dequ.Id, dequ.Tiempo);
+                        this.procesos.Rows.Add(procesBloqued.Id, procesBloqued.Tiempo, procesBloqued.TiemposDispatcher);
                     }
                 }
 
@@ -156,5 +159,6 @@ namespace SolucionPackage
             this.nombreProceso.SelectedIndex = 0;
         }
 
+ 
     }
 }

@@ -27,7 +27,7 @@ namespace SimuladorDispatcher.SolucionPackage
         public override void ejecutar()
         {
 
-            this.tiemposDispatcher ++;
+            TiemposDispatcher++;
             var =+ varSumar;
 
         }
