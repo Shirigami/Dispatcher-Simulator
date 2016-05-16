@@ -49,10 +49,8 @@ namespace SolucionPackage
 
         private void ejecutar_Click(object sender, EventArgs e)
         {
-            
-            
+            button1.Enabled = false;
             dequ = ready.Dequeue();
-            //MessageBox.Show(dequ.GetType().ToString());
             this.procesos.Rows.RemoveAt(0);
 
 
@@ -78,7 +76,7 @@ namespace SolucionPackage
            
         }
 
-        int segundos = 0;
+        int segundos = 1;
         private void timer1_Tick(object sender, EventArgs e)
         {
             progreso(Convert.ToInt32(dequ.Tiempo), sender, e);
@@ -86,14 +84,13 @@ namespace SolucionPackage
 
         private void progreso(int valor, object sender, EventArgs e)
         {
+
             tiempo.Text = Convert.ToString(segundos++);
             barraProgreso.Minimum = 1;
-            barraProgreso.Maximum = Convert.ToInt32(valor);
+            barraProgreso.Maximum = Convert.ToInt32(valor+1);
             barraProgreso.Step = 1;
             barraProgreso.PerformStep();
-
-
-            if (segundos > valor)
+            if (segundos > valor+1)
             {
                 //this.dequ.ejecutar();
                 // MessageBox.Show(dequ.Estado);
@@ -125,11 +122,16 @@ namespace SolucionPackage
                 if (ready.Count != 0)
                 {
                     this.ejecutar_Click(sender, e);
+                   
                 }
+                if (ready.Count == 0 && timer1.Enabled == true && dequ.Estado == "Terminado")
+                {
+                    this.button1.Enabled = true;
                 
-
+                }
             }
         }
+
         private void reinit()
         {
             segundos = 0;
@@ -146,6 +148,11 @@ namespace SolucionPackage
                 this.barraProgreso.ForeColor = Color.Red;
             } 
 
+        }
+
+        private void VentanaPrincipal_Load(object sender, EventArgs e)
+        {
+            this.nombreProceso.SelectedIndex = 0;
         }
 
     }
