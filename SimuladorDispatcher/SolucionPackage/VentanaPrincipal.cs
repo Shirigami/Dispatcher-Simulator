@@ -29,7 +29,7 @@ namespace SolucionPackage
         private void btnCrearProceso_Click(object sender, EventArgs e)
         {
             Proceso prcs;
-           // MessageBox.Show(this.nombreProceso.SelectedIndex.ToString());
+            MessageBox.Show(this.nombreProceso.SelectedIndex.ToString());
             if (this.nombreProceso.SelectedIndex == 0)
             {
                 prcs = new ProcesoA((int)this.duracion.Value);
@@ -52,23 +52,11 @@ namespace SolucionPackage
             button1.Enabled = false;
             dequ = ready.Dequeue();
             this.procesos.Rows.RemoveAt(0);
-
-
-
-            if (dequ is ProcesoC && this.isRecursoOccup == true && dequ.Estado == "Listo")
+            if (dequ is ProcesoC && this.isRecursoOccup == true)
             {
                 this.dataGridView1.Rows.Add(dequ.Id, dequ.Tiempo);
-                blocked.Enqueue(dequ);
-                this.ejecutar_Click(sender, e);
-                return;
-
-            }
-            if (dequ is ProcesoC && this.isRecursoOccup == false)
-            {
-                this.isRecursoOccup = true;
-            }
-
-            dequ.ejecutar();
+                dequ = ready.Dequeue();
+            }                      
             timer1.Enabled = true;
             timer1.Start();
             reinit();
@@ -93,32 +81,17 @@ namespace SolucionPackage
             if (segundos > valor+1)
             {
                 //this.dequ.ejecutar();
-                // MessageBox.Show(dequ.Estado);
-                //tiempo.Text = "Proceso " + dequ.Id + " terminado";
-                
+                tiempo.Text = "Proceso " + dequ.Id + " terminado";
                 
                 timer1.Stop();
                 reinit();
-                if (dequ.Estado == "Listo" || dequ.Estado == "Reservado")
+                if (dequ is ProcesoB && 5>Convert.ToInt32(this.dequ.ejecutar()))
                 {
-                    //MessageBox.Show("Entre");
+                                    
                     this.procesos.Rows.Add(dequ.Id, dequ.Tiempo);
                     ready.Enqueue(dequ);
-             
-                }
-
-                if(dequ is ProcesoC && dequ.Estado == "Terminado")
-                {
-                    isRecursoOccup = false;
-                    if (blocked.Count != 0)
-                    {
-                        Proceso procesBloqued = blocked.Dequeue();
-                        this.dataGridView1.Rows.RemoveAt(0);
-                        ready.Enqueue(procesBloqued);
-                        this.procesos.Rows.Add(dequ.Id, dequ.Tiempo);
-                    }
-                }
-
+                   // this.ejecutar_Click(sender, e);
+                } 
                 if (ready.Count != 0)
                 {
                     this.ejecutar_Click(sender, e);
