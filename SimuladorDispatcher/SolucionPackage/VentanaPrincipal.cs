@@ -29,7 +29,7 @@ namespace SolucionPackage
         private void btnCrearProceso_Click(object sender, EventArgs e)
         {
             Proceso prcs;
-           // MessageBox.Show(this.nombreProceso.SelectedIndex.ToString());
+            MessageBox.Show(this.nombreProceso.SelectedIndex.ToString());
             if (this.nombreProceso.SelectedIndex == 0)
             {
                 prcs = new ProcesoA((int)this.duracion.Value);
@@ -49,28 +49,14 @@ namespace SolucionPackage
 
         private void ejecutar_Click(object sender, EventArgs e)
         {
-            
-            
+            button1.Enabled = false;
             dequ = ready.Dequeue();
-            //MessageBox.Show(dequ.GetType().ToString());
             this.procesos.Rows.RemoveAt(0);
-
-
-
-            if (dequ is ProcesoC && this.isRecursoOccup == true && dequ.Estado == "Listo")
+            if (dequ is ProcesoC && this.isRecursoOccup == true)
             {
                 this.dataGridView1.Rows.Add(dequ.Id, dequ.Tiempo);
-                blocked.Enqueue(dequ);
-                this.ejecutar_Click(sender, e);
-                return;
-
-            }
-            if (dequ is ProcesoC && this.isRecursoOccup == false)
-            {
-                this.isRecursoOccup = true;
-            }
-
-            dequ.ejecutar();
+                dequ = ready.Dequeue();
+            }                      
             timer1.Enabled = true;
             timer1.Start();
             reinit();
@@ -78,7 +64,7 @@ namespace SolucionPackage
            
         }
 
-        int segundos = 0;
+        int segundos = 1;
         private void timer1_Tick(object sender, EventArgs e)
         {
             progreso(Convert.ToInt32(dequ.Tiempo), sender, e);
@@ -86,50 +72,39 @@ namespace SolucionPackage
 
         private void progreso(int valor, object sender, EventArgs e)
         {
+
             tiempo.Text = Convert.ToString(segundos++);
             barraProgreso.Minimum = 1;
-            barraProgreso.Maximum = Convert.ToInt32(valor);
+            barraProgreso.Maximum = Convert.ToInt32(valor+1);
             barraProgreso.Step = 1;
             barraProgreso.PerformStep();
-
-
-            if (segundos > valor)
+            if (segundos > valor+1)
             {
                 //this.dequ.ejecutar();
-                // MessageBox.Show(dequ.Estado);
-                //tiempo.Text = "Proceso " + dequ.Id + " terminado";
-                
+                tiempo.Text = "Proceso " + dequ.Id + " terminado";
                 
                 timer1.Stop();
                 reinit();
-                if (dequ.Estado == "Listo" || dequ.Estado == "Reservado")
+                if (dequ is ProcesoB && 5>Convert.ToInt32(this.dequ.ejecutar()))
                 {
-                    //MessageBox.Show("Entre");
+                                    
                     this.procesos.Rows.Add(dequ.Id, dequ.Tiempo);
                     ready.Enqueue(dequ);
-             
-                }
-
-                if(dequ is ProcesoC && dequ.Estado == "Terminado")
-                {
-                    isRecursoOccup = false;
-                    if (blocked.Count != 0)
-                    {
-                        Proceso procesBloqued = blocked.Dequeue();
-                        this.dataGridView1.Rows.RemoveAt(0);
-                        ready.Enqueue(procesBloqued);
-                        this.procesos.Rows.Add(dequ.Id, dequ.Tiempo);
-                    }
-                }
-
+                   // this.ejecutar_Click(sender, e);
+                } 
                 if (ready.Count != 0)
                 {
                     this.ejecutar_Click(sender, e);
+                   
                 }
+                if (ready.Count == 0 && timer1.Enabled == true && dequ.Estado == "Terminado")
+                {
+                    this.button1.Enabled = true;
                 
-
+                }
             }
         }
+
         private void reinit()
         {
             segundos = 0;
@@ -146,6 +121,11 @@ namespace SolucionPackage
                 this.barraProgreso.ForeColor = Color.Red;
             } 
 
+        }
+
+        private void VentanaPrincipal_Load(object sender, EventArgs e)
+        {
+            this.nombreProceso.SelectedIndex = 0;
         }
 
     }

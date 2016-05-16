@@ -39,25 +39,26 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.recurso = new System.Windows.Forms.Label();
             this.barraProgreso = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tiempo = new System.Windows.Forms.Label();
             this.duracionPBloqueado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombrePBloqueado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.duracionP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.procesos = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.duracionP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vecesDispatcher = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.semaforo = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.duracion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.procesos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.semaforo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCrearProceso
@@ -78,7 +79,7 @@
             this.groupBox1.Controls.Add(this.btnCrearProceso);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 11F);
-            this.groupBox1.Location = new System.Drawing.Point(64, 22);
+            this.groupBox1.Location = new System.Drawing.Point(134, 30);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(611, 96);
             this.groupBox1.TabIndex = 1;
@@ -87,6 +88,8 @@
             // 
             // nombreProceso
             // 
+            this.nombreProceso.AllowDrop = true;
+            this.nombreProceso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.nombreProceso.FormattingEnabled = true;
             this.nombreProceso.Items.AddRange(new object[] {
             "A",
@@ -125,7 +128,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(321, 150);
+            this.button1.Location = new System.Drawing.Point(438, 197);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(132, 33);
             this.button1.TabIndex = 4;
@@ -133,29 +136,11 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.ejecutar_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(318, 195);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Recurso Asignado al Proceso";
-            // 
-            // recurso
-            // 
-            this.recurso.AutoSize = true;
-            this.recurso.Location = new System.Drawing.Point(358, 217);
-            this.recurso.Name = "recurso";
-            this.recurso.Size = new System.Drawing.Size(46, 13);
-            this.recurso.TabIndex = 7;
-            this.recurso.Text = "Proceso";
-            // 
             // barraProgreso
             // 
-            this.barraProgreso.Location = new System.Drawing.Point(526, 169);
+            this.barraProgreso.Location = new System.Drawing.Point(639, 207);
             this.barraProgreso.Name = "barraProgreso";
-            this.barraProgreso.Size = new System.Drawing.Size(149, 23);
+            this.barraProgreso.Size = new System.Drawing.Size(202, 23);
             this.barraProgreso.TabIndex = 8;
             // 
             // timer1
@@ -166,9 +151,10 @@
             // tiempo
             // 
             this.tiempo.AutoSize = true;
-            this.tiempo.Location = new System.Drawing.Point(523, 150);
+            this.tiempo.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tiempo.Location = new System.Drawing.Point(730, 239);
             this.tiempo.Name = "tiempo";
-            this.tiempo.Size = new System.Drawing.Size(13, 13);
+            this.tiempo.Size = new System.Drawing.Size(15, 18);
             this.tiempo.TabIndex = 9;
             this.tiempo.Text = "0";
             // 
@@ -192,23 +178,11 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NombrePBloqueado,
             this.duracionPBloqueado});
-            this.dataGridView1.Location = new System.Drawing.Point(52, 359);
+            this.dataGridView1.Location = new System.Drawing.Point(55, 373);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(246, 150);
             this.dataGridView1.TabIndex = 5;
-            // 
-            // duracionP
-            // 
-            this.duracionP.HeaderText = "Duración";
-            this.duracionP.Name = "duracionP";
-            this.duracionP.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "ID";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
             // 
             // procesos
             // 
@@ -217,73 +191,107 @@
             this.procesos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.procesos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre,
-            this.duracionP});
+            this.duracionP,
+            this.vecesDispatcher});
             this.procesos.Location = new System.Drawing.Point(52, 169);
             this.procesos.Name = "procesos";
             this.procesos.ReadOnly = true;
-            this.procesos.Size = new System.Drawing.Size(244, 140);
+            this.procesos.Size = new System.Drawing.Size(343, 140);
             this.procesos.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(52, 149);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(115, 13);
+            this.label4.Size = new System.Drawing.Size(148, 18);
             this.label4.TabIndex = 10;
             this.label4.Text = "Cola de procesos listos";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(52, 343);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(147, 13);
+            this.label5.Size = new System.Drawing.Size(188, 18);
             this.label5.TabIndex = 11;
             this.label5.Text = "Cola de procesos bloqueados";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(523, 121);
+            this.label6.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(636, 184);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(119, 13);
+            this.label6.Size = new System.Drawing.Size(149, 18);
             this.label6.TabIndex = 12;
             this.label6.Text = "Proceso en ejecución:  ";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(648, 121);
+            this.label7.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(779, 184);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(13, 13);
+            this.label7.Size = new System.Drawing.Size(15, 18);
             this.label7.TabIndex = 13;
             this.label7.Text = "0";
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "ID";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // duracionP
+            // 
+            this.duracionP.HeaderText = "Duración";
+            this.duracionP.Name = "duracionP";
+            this.duracionP.ReadOnly = true;
+            // 
+            // vecesDispatcher
+            // 
+            this.vecesDispatcher.HeaderText = "Veces Dispatcher";
+            this.vecesDispatcher.Name = "vecesDispatcher";
+            this.vecesDispatcher.ReadOnly = true;
+            // 
+            // semaforo
+            // 
+            this.semaforo.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.semaforo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.semaforo.Location = new System.Drawing.Point(733, 318);
+            this.semaforo.Name = "semaforo";
+            this.semaforo.Size = new System.Drawing.Size(40, 43);
+            this.semaforo.TabIndex = 15;
+            this.semaforo.TabStop = false;
             // 
             // VentanaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(753, 505);
+            this.ClientSize = new System.Drawing.Size(894, 559);
+            this.Controls.Add(this.semaforo);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tiempo);
             this.Controls.Add(this.barraProgreso);
-            this.Controls.Add(this.recurso);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.procesos);
             this.Controls.Add(this.groupBox1);
             this.Name = "VentanaPrincipal";
             this.Text = "Simulación de Procesos";
+            this.Load += new System.EventHandler(this.VentanaPrincipal_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.duracion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.procesos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.semaforo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,21 +306,21 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label recurso;
         private System.Windows.Forms.ProgressBar barraProgreso;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label tiempo;
         private System.Windows.Forms.DataGridViewTextBoxColumn duracionPBloqueado;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombrePBloqueado;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn duracionP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridView procesos;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn duracionP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vecesDispatcher;
+        private System.Windows.Forms.PictureBox semaforo;
     }
 }
 
