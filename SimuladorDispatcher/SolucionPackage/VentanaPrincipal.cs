@@ -157,6 +157,7 @@ namespace SolucionPackage
         private void VentanaPrincipal_Load(object sender, EventArgs e)
         {
             this.nombreProceso.SelectedIndex = 0;
+            semaforo.BackColor = System.Drawing.Color.Green;
         }
 
  

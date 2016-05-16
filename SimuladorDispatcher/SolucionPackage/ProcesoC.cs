@@ -28,9 +28,16 @@ namespace SimuladorDispatcher.SolucionPackage
             Estado = "Reservado";
             tiemposDispatcher++;
 
+     
         }
+
+        public override String toStrig()
+        {
+            return "Proceso" + "\n ID: " + this.id.ToString() +
+                  "\nEstado: " + this.estado + "\nTiempo: " + this.tiempo +
+                  "\nVeces ejecutadas" + this.tiemposDispatcher;
+        }
+
     }
-
-
     
 }

@@ -11,7 +11,7 @@ namespace SimuladorDispatcher.SolucionPackage
 {
     public class Log
     {
-        private static String pathXML = "Registro_Procesos.xml";
+        private static String pathXML = "Registro_Procesos.csv";
         //Constructor de la clase
         public Log(){}
 
@@ -56,31 +56,21 @@ namespace SimuladorDispatcher.SolucionPackage
         //Introduce los nuevos datos en la ultima línea del archivo
         public void createNewLog(Proceso proceso)
         {
-            XmlDocument doc = new XmlDocument();
-            doc.Load(pathXML); // cargar archivo
+            string delimiter = ":";
+            string[][] output = new string[][]{
+            new string[]{"/----------Registro_Procesos----------/"},
+            new string[]{proceso.ToString()},
+            new string[]{"\n/-------------------------------------/"}
+            };
 
-            //creacion de nodos con su respectivo valor
-            XmlNode node = doc.CreateNode(XmlNodeType.Element, "Regitro", null);
+            int length = output.GetLength(0);
+            StringBuilder sb = new StringBuilder();
 
-            XmlNode nodoPID = doc.CreateElement("PID");
-            nodoPID.InnerText = proceso.Id;
-
-            XmlNode nodoEstado = doc.CreateElement("Estado");
-            nodoEstado.InnerText = proceso.Estado;
-
-            XmlNode nodoDuracion = doc.CreateElement("Duracion");
-            nodoDuracion.InnerText = Convert.ToString(proceso.Tiempo);
-
-            //añadir al nodo raíz
-            node.AppendChild(nodoPID);
-            node.AppendChild(nodoEstado);
-            node.AppendChild(nodoDuracion);
-
-            // añadir al documento
-            doc.DocumentElement.AppendChild(node);
-
-            //salvar el archivo
-            doc.Save(pathXML);
+            for (int index = 0; index < length; index++)
+                //agregar filas 
+                sb.AppendLine(string.Join(delimiter, output[index]));
+            // agregar texto a las filas creadas
+            File.AppendAllText(pathCSV, sb.ToString());
         }
        
     }
