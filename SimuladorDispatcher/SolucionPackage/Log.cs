@@ -11,7 +11,7 @@ namespace SimuladorDispatcher.SolucionPackage
 {
     public class Log
     {
-        private static String pathXML = "Registro_Procesos.csv";
+        private static String pathCSV = "Registro_Procesos.csv";
         //Constructor de la clase
         public Log(){}
 
@@ -33,19 +33,14 @@ namespace SimuladorDispatcher.SolucionPackage
         //Crea un archivo en la carpeta SistemaAhorroInversion\\bin\\Debug
         public void createFile()
         {
-            XmlTextWriter docXML = new XmlTextWriter(pathXML, null);
-            docXML.Formatting = Formatting.Indented;
-            docXML.WriteStartDocument(false);
-            docXML.WriteStartElement("Registro_Procesos");
-            docXML.WriteEndElement();
-            docXML.Flush();
-            docXML.Close();
+            pathCSV = "CSV_Registro_Histórico.csv";
+            File.Create(pathCSV).Close();
         }
 
         //Llama a validar el archivo y crea un nuevo log 
         public void addLog(Proceso proceso)
         {
-            if (!validateFile(pathXML))
+            if (!validateFile(pathCSV))
             {
                 createFile();
             }
