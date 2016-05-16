@@ -33,13 +33,8 @@ namespace SimuladorDispatcher.SolucionPackage
         //Crea un archivo en la carpeta SistemaAhorroInversion\\bin\\Debug
         public void createFile()
         {
-            XmlTextWriter docXML = new XmlTextWriter(pathCSV, null);
-            docXML.Formatting = Formatting.Indented;
-            docXML.WriteStartDocument(false);
-            docXML.WriteStartElement("Registro_Procesos");
-            docXML.WriteEndElement();
-            docXML.Flush();
-            docXML.Close();
+            pathCSV = "CSV_Registro_Histórico.csv";
+            File.Create(pathCSV).Close();
         }
 
         //Llama a validar el archivo y crea un nuevo log 
