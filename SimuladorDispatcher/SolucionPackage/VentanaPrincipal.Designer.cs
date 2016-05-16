@@ -53,10 +53,12 @@
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.duracionP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vecesDispatcher = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.semaforo = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.duracion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.procesos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.semaforo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCrearProceso
@@ -86,6 +88,7 @@
             // 
             // nombreProceso
             // 
+            this.nombreProceso.AllowDrop = true;
             this.nombreProceso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.nombreProceso.FormattingEnabled = true;
             this.nombreProceso.Items.AddRange(new object[] {
@@ -254,11 +257,22 @@
             this.vecesDispatcher.Name = "vecesDispatcher";
             this.vecesDispatcher.ReadOnly = true;
             // 
+            // semaforo
+            // 
+            this.semaforo.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.semaforo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.semaforo.Location = new System.Drawing.Point(733, 318);
+            this.semaforo.Name = "semaforo";
+            this.semaforo.Size = new System.Drawing.Size(40, 43);
+            this.semaforo.TabIndex = 15;
+            this.semaforo.TabStop = false;
+            // 
             // VentanaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(894, 559);
+            this.Controls.Add(this.semaforo);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -271,11 +285,13 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "VentanaPrincipal";
             this.Text = "Simulación de Procesos";
+            this.Load += new System.EventHandler(this.VentanaPrincipal_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.duracion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.procesos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.semaforo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,6 +320,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn duracionP;
         private System.Windows.Forms.DataGridViewTextBoxColumn vecesDispatcher;
+        private System.Windows.Forms.PictureBox semaforo;
     }
 }
 
