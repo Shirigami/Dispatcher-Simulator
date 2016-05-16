@@ -64,7 +64,10 @@ namespace SolucionPackage
             if (dequ is ProcesoC && this.isRecursoOccup == true && dequ.Estado == "Listo")
             {
                 this.dataGridView1.Rows.Add(dequ.Id, dequ.Tiempo);
+                dequ.Estado = "Bloqueado";
+                log.addLog((Proceso)dequ);
                 blocked.Enqueue(dequ);
+
                 this.ejecutar_Click(sender, e);
                 return;
 
@@ -122,6 +125,8 @@ namespace SolucionPackage
                     if (blocked.Count != 0)
                     {
                         Proceso procesBloqued = blocked.Dequeue();
+                        procesBloqued.Estado = "Listo";
+                        log.addLog(procesBloqued);
                         this.dataGridView1.Rows.RemoveAt(0);
                         ready.Enqueue(procesBloqued);
                         this.procesos.Rows.Add(procesBloqued.Id, procesBloqued.Tiempo, procesBloqued.TiemposDispatcher);

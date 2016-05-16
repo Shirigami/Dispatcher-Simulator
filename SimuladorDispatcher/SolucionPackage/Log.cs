@@ -54,7 +54,7 @@ namespace SimuladorDispatcher.SolucionPackage
             string delimiter = ":";
             string[][] output = new string[][]{
             new string[]{"/----------Registro_Procesos----------/"},
-            new string[]{proceso.ToString()},
+            new string[]{proceso.toString()},
             new string[]{"\n/-------------------------------------/"}
             };
 

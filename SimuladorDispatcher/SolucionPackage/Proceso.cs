@@ -68,7 +68,7 @@ namespace SimuladorDispatcher.SolucionPackage
 
         public abstract void ejecutar();
 
-        public abstract String toStrig();
+        public abstract String toString();
 
     }
 

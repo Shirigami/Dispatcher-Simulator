@@ -29,7 +29,7 @@ namespace SimuladorDispatcher.SolucionPackage
 
         }
 
-        public override String toStrig()
+        public override String toString()
         {
             return "Proceso" + "\n ID: " + this.id.ToString() +
                   "\nEstado: " + this.estado + "\nTiempo: " + this.tiempo +
