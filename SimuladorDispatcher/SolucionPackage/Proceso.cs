@@ -11,6 +11,7 @@ namespace SimuladorDispatcher.SolucionPackage
         protected string id;
         protected string estado;
         protected int tiempo;
+        protected int tiemposDispatcher = 0;
 
         public Proceso(int tiempo)
         {
@@ -24,6 +25,15 @@ namespace SimuladorDispatcher.SolucionPackage
             get
             {
                 return id;
+            }
+
+        }
+
+        public int TiemposDispatcher
+        {
+            get
+            {
+                return tiemposDispatcher;
             }
 
         }
@@ -52,7 +62,7 @@ namespace SimuladorDispatcher.SolucionPackage
 
         }
 
-        public abstract string ejecutar();
+        public abstract void ejecutar();
 
     }
 

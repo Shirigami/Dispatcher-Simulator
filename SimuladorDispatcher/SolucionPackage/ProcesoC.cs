@@ -14,14 +14,23 @@ namespace SimuladorDispatcher.SolucionPackage
         {
             base.id = "C" + cantidadInstancias;
             cantidadInstancias++;
+            Estado = "Listo";
         }
 
-        public override string ejecutar()
+        public override void ejecutar()
         {
-            string x = "Usando el audio";
-            return x;
+            if (tiemposDispatcher > 3)
+            {
+                Estado = "Terminado";
+                return;
+            }
+
+            Estado = "Reservado";
+            tiemposDispatcher++;
+
         }
-
-
     }
+
+
+    
 }
