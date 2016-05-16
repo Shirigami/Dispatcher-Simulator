@@ -46,14 +46,15 @@
             this.NombrePBloqueado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.procesos = new System.Windows.Forms.DataGridView();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.duracionP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vecesDispatcher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.semaforo = new System.Windows.Forms.PictureBox();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.duracionP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vecesDispatcher = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.duracion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -128,6 +129,7 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(438, 197);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(132, 33);
@@ -199,6 +201,24 @@
             this.procesos.Size = new System.Drawing.Size(343, 140);
             this.procesos.TabIndex = 3;
             // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "ID";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // duracionP
+            // 
+            this.duracionP.HeaderText = "Duración";
+            this.duracionP.Name = "duracionP";
+            this.duracionP.ReadOnly = true;
+            // 
+            // vecesDispatcher
+            // 
+            this.vecesDispatcher.HeaderText = "Veces Ejecutadas";
+            this.vecesDispatcher.Name = "vecesDispatcher";
+            this.vecesDispatcher.ReadOnly = true;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -249,29 +269,22 @@
             this.semaforo.TabIndex = 15;
             this.semaforo.TabStop = false;
             // 
-            // Nombre
+            // label3
             // 
-            this.Nombre.HeaderText = "ID";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // duracionP
-            // 
-            this.duracionP.HeaderText = "Duración";
-            this.duracionP.Name = "duracionP";
-            this.duracionP.ReadOnly = true;
-            // 
-            // vecesDispatcher
-            // 
-            this.vecesDispatcher.HeaderText = "Veces Ejecutadas";
-            this.vecesDispatcher.Name = "vecesDispatcher";
-            this.vecesDispatcher.ReadOnly = true;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(717, 291);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 18);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Semáforo";
             // 
             // VentanaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(894, 559);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.semaforo);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -321,6 +334,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn duracionP;
         private System.Windows.Forms.DataGridViewTextBoxColumn vecesDispatcher;
+        private System.Windows.Forms.Label label3;
     }
 }
 
