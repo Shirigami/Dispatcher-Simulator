@@ -34,11 +34,11 @@ namespace SimuladorDispatcher.SolucionPackage
 
         public override String toString()
         {
-              return "Proceso"+ "\n ID: " + this.id.ToString() +
-                    "\nEstado: " + this.estado + "\nTiempo: " + this.tiempo +
-                    "\nVeces ejecutadas: " + this.tiemposDispatcher + 
-                    "\nOperacion a realizar, sumar: " + this.varSumar +
-                    "\nOperacion realizada: " + this.var; 
+              return "Proceso"+ " \n ID: " + this.id.ToString() +
+                    " \nEstado: " + this.estado + " \nTiempo: " + this.tiempo +
+                    " \nVeces ejecutadas: " + this.tiemposDispatcher + 
+                    " \nOperacion a realizar, sumar: " + this.varSumar +
+                    " \nOperacion realizada: " + this.var; 
         }
 
     }

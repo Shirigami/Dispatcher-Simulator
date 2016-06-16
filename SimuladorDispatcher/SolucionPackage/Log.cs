@@ -45,7 +45,6 @@ namespace SimuladorDispatcher.SolucionPackage
                 createFile();
             }
             createNewLog(proceso);
-
         }
 
         //Introduce los nuevos datos en la ultima línea del archivo

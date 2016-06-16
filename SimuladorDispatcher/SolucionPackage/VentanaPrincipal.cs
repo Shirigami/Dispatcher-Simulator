@@ -19,6 +19,7 @@ namespace SolucionPackage
         Queue<Proceso> ready;
         Queue<Proceso> blocked;
         Log log;
+        List<string> stringProcesos = new List<string>();
         public VentanaPrincipal()
         {
             InitializeComponent();
@@ -49,6 +50,7 @@ namespace SolucionPackage
             ready.Enqueue(prcs);
             procesos.Rows.Add(prcs.Id, prcs.Tiempo, prcs.TiemposDispatcher);
             this.log.addLog(prcs);
+            escribirOutput(prcs);
         }
 
         private void ejecutar_Click(object sender, EventArgs e)
@@ -66,6 +68,7 @@ namespace SolucionPackage
                 this.dataGridView1.Rows.Add(dequ.Id, dequ.Tiempo);
                 dequ.Estado = "Bloqueado";
                 log.addLog((Proceso)dequ);
+                escribirOutput((Proceso)dequ);
                 blocked.Enqueue(dequ);
 
                 this.ejecutar_Click(sender, e);
@@ -104,10 +107,11 @@ namespace SolucionPackage
             {
                 this.dequ.ejecutar();
                 log.addLog(dequ);
+                escribirOutput(dequ);
                 // MessageBox.Show(dequ.Estado);
                 //tiempo.Text = "Proceso " + dequ.Id + " terminado";
-                
-                
+
+
                 timer1.Stop();
                 reinit();
                 if (dequ.Estado == "Listo" || dequ.Estado == "Reservado")
@@ -127,6 +131,7 @@ namespace SolucionPackage
                         Proceso procesBloqued = blocked.Dequeue();
                         procesBloqued.Estado = "Listo";
                         log.addLog(procesBloqued);
+                        escribirOutput(procesBloqued);
                         this.dataGridView1.Rows.RemoveAt(0);
                         ready.Enqueue(procesBloqued);
                         this.procesos.Rows.Add(procesBloqued.Id, procesBloqued.Tiempo, procesBloqued.TiemposDispatcher);
@@ -170,6 +175,11 @@ namespace SolucionPackage
             semaforo.BackColor = System.Drawing.Color.Green;
         }
 
+        public void escribirOutput(Proceso proceso) {       
+            stringProcesos.Add(proceso.toString());
+            Output.DataSource = null;
+            Output.DataSource = stringProcesos;
+        }
  
     }
 }
