@@ -19,13 +19,14 @@ namespace SimuladorDispatcher.SolucionPackage
 
         public override void ejecutar()
         {
-            if (tiemposDispatcher > 3)
+            tiemposDispatcher++;
+            if (tiemposDispatcher > 4)
             {
                 Estado = "Terminado";
                 return;
             }
 
-            tiemposDispatcher++;
+            
 
         }
 
