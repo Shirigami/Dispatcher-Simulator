@@ -28,11 +28,13 @@ namespace SolucionPackage
             isRecursoOccup = false;
             semaforo.BackColor = System.Drawing.Color.Green;
             log = new Log();
+            button1.Enabled = false;
         }
 
         private void btnCrearProceso_Click(object sender, EventArgs e)
         {
             Proceso prcs;
+            button1.Enabled = true;
            // MessageBox.Show(this.nombreProceso.SelectedIndex.ToString());
             if (this.nombreProceso.SelectedIndex == 0)
             {
@@ -97,7 +99,7 @@ namespace SolucionPackage
 
         private void progreso(int valor, object sender, EventArgs e)
         {
-
+            
             tiempo.Text = Convert.ToString(segundos++);
             barraProgreso.Minimum = 1;
             barraProgreso.Maximum = Convert.ToInt32(valor+1);
@@ -175,11 +177,25 @@ namespace SolucionPackage
             semaforo.BackColor = System.Drawing.Color.Green;
         }
 
-        public void escribirOutput(Proceso proceso) {       
+        public void escribirOutput(Proceso proceso) {
+  
             stringProcesos.Add(proceso.toString());
             Output.DataSource = null;
             Output.DataSource = stringProcesos;
+            Output.TopIndex = Output.Items.Count - 1;
         }
- 
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            button1.Enabled = false;
+            ready.Clear();
+            blocked.Clear();
+            isRecursoOccup = false;
+            semaforo.BackColor = System.Drawing.Color.Green;
+            this.reinit();
+            procesos.Rows.Clear();
+            dataGridView1.Rows.Clear();
+        }
     }
 }
