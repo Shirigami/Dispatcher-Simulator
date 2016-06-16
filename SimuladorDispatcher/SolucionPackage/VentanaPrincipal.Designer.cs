@@ -67,9 +67,10 @@
             // 
             // btnCrearProceso
             // 
-            this.btnCrearProceso.Location = new System.Drawing.Point(454, 29);
+            this.btnCrearProceso.Location = new System.Drawing.Point(605, 36);
+            this.btnCrearProceso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCrearProceso.Name = "btnCrearProceso";
-            this.btnCrearProceso.Size = new System.Drawing.Size(132, 33);
+            this.btnCrearProceso.Size = new System.Drawing.Size(176, 41);
             this.btnCrearProceso.TabIndex = 0;
             this.btnCrearProceso.Text = "Crear Proceso";
             this.btnCrearProceso.UseVisualStyleBackColor = true;
@@ -83,9 +84,11 @@
             this.groupBox1.Controls.Add(this.btnCrearProceso);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 11F);
-            this.groupBox1.Location = new System.Drawing.Point(134, 30);
+            this.groupBox1.Location = new System.Drawing.Point(179, 37);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(611, 96);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(815, 118);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del Proceso";
@@ -99,43 +102,48 @@
             "A",
             "B",
             "C"});
-            this.nombreProceso.Location = new System.Drawing.Point(92, 36);
+            this.nombreProceso.Location = new System.Drawing.Point(123, 44);
+            this.nombreProceso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nombreProceso.Name = "nombreProceso";
-            this.nombreProceso.Size = new System.Drawing.Size(121, 26);
+            this.nombreProceso.Size = new System.Drawing.Size(160, 30);
             this.nombreProceso.TabIndex = 3;
             // 
             // duracion
             // 
-            this.duracion.Location = new System.Drawing.Point(377, 34);
+            this.duracion.Location = new System.Drawing.Point(503, 42);
+            this.duracion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.duracion.Name = "duracion";
-            this.duracion.Size = new System.Drawing.Size(59, 25);
+            this.duracion.Size = new System.Drawing.Size(79, 30);
             this.duracion.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(229, 39);
+            this.label2.Location = new System.Drawing.Point(305, 48);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 18);
+            this.label2.Size = new System.Drawing.Size(178, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "Duración del Proceso:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 39);
+            this.label1.Location = new System.Drawing.Point(37, 48);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 18);
+            this.label1.Size = new System.Drawing.Size(81, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Proceso: ";
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(438, 197);
+            this.button1.Location = new System.Drawing.Point(584, 242);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 33);
+            this.button1.Size = new System.Drawing.Size(176, 41);
             this.button1.TabIndex = 4;
             this.button1.Text = "Iniciar";
             this.button1.UseVisualStyleBackColor = true;
@@ -143,9 +151,10 @@
             // 
             // barraProgreso
             // 
-            this.barraProgreso.Location = new System.Drawing.Point(639, 207);
+            this.barraProgreso.Location = new System.Drawing.Point(852, 255);
+            this.barraProgreso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.barraProgreso.Name = "barraProgreso";
-            this.barraProgreso.Size = new System.Drawing.Size(202, 23);
+            this.barraProgreso.Size = new System.Drawing.Size(269, 28);
             this.barraProgreso.TabIndex = 8;
             // 
             // timer1
@@ -157,9 +166,10 @@
             // 
             this.tiempo.AutoSize = true;
             this.tiempo.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tiempo.Location = new System.Drawing.Point(730, 239);
+            this.tiempo.Location = new System.Drawing.Point(973, 294);
+            this.tiempo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tiempo.Name = "tiempo";
-            this.tiempo.Size = new System.Drawing.Size(15, 18);
+            this.tiempo.Size = new System.Drawing.Size(20, 23);
             this.tiempo.TabIndex = 9;
             this.tiempo.Text = "0";
             // 
@@ -183,10 +193,11 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NombrePBloqueado,
             this.duracionPBloqueado});
-            this.dataGridView1.Location = new System.Drawing.Point(55, 373);
+            this.dataGridView1.Location = new System.Drawing.Point(73, 459);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(246, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(328, 185);
             this.dataGridView1.TabIndex = 5;
             // 
             // procesos
@@ -198,10 +209,11 @@
             this.Nombre,
             this.duracionP,
             this.vecesDispatcher});
-            this.procesos.Location = new System.Drawing.Point(52, 169);
+            this.procesos.Location = new System.Drawing.Point(69, 208);
+            this.procesos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.procesos.Name = "procesos";
             this.procesos.ReadOnly = true;
-            this.procesos.Size = new System.Drawing.Size(343, 140);
+            this.procesos.Size = new System.Drawing.Size(457, 172);
             this.procesos.TabIndex = 3;
             // 
             // Nombre
@@ -226,9 +238,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(52, 149);
+            this.label4.Location = new System.Drawing.Point(69, 183);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(148, 18);
+            this.label4.Size = new System.Drawing.Size(184, 23);
             this.label4.TabIndex = 10;
             this.label4.Text = "Cola de procesos listos";
             // 
@@ -236,9 +249,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(52, 343);
+            this.label5.Location = new System.Drawing.Point(69, 422);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(188, 18);
+            this.label5.Size = new System.Drawing.Size(234, 23);
             this.label5.TabIndex = 11;
             this.label5.Text = "Cola de procesos bloqueados";
             // 
@@ -246,9 +260,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(636, 184);
+            this.label6.Location = new System.Drawing.Point(848, 226);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(149, 18);
+            this.label6.Size = new System.Drawing.Size(185, 23);
             this.label6.TabIndex = 12;
             this.label6.Text = "Proceso en ejecución:  ";
             // 
@@ -256,9 +271,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(779, 184);
+            this.label7.Location = new System.Drawing.Point(1039, 226);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(15, 18);
+            this.label7.Size = new System.Drawing.Size(20, 23);
             this.label7.TabIndex = 13;
             this.label7.Text = "0";
             // 
@@ -266,9 +282,10 @@
             // 
             this.semaforo.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.semaforo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.semaforo.Location = new System.Drawing.Point(733, 296);
+            this.semaforo.Location = new System.Drawing.Point(977, 364);
+            this.semaforo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.semaforo.Name = "semaforo";
-            this.semaforo.Size = new System.Drawing.Size(40, 43);
+            this.semaforo.Size = new System.Drawing.Size(52, 52);
             this.semaforo.TabIndex = 15;
             this.semaforo.TabStop = false;
             // 
@@ -276,37 +293,41 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(711, 274);
+            this.label3.Location = new System.Drawing.Point(948, 337);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 18);
+            this.label3.Size = new System.Drawing.Size(85, 23);
             this.label3.TabIndex = 16;
             this.label3.Text = "Semáforo";
             // 
             // Output
             // 
             this.Output.FormattingEnabled = true;
-            this.Output.Location = new System.Drawing.Point(330, 373);
-            this.Output.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Output.ItemHeight = 16;
+            this.Output.Location = new System.Drawing.Point(440, 459);
+            this.Output.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Output.Name = "Output";
-            this.Output.Size = new System.Drawing.Size(573, 147);
+            this.Output.Size = new System.Drawing.Size(800, 180);
             this.Output.TabIndex = 17;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(327, 341);
+            this.label8.Location = new System.Drawing.Point(436, 420);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 18);
+            this.label8.Size = new System.Drawing.Size(65, 23);
             this.label8.TabIndex = 18;
             this.label8.Text = "Output";
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(438, 276);
+            this.button2.Location = new System.Drawing.Point(584, 340);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(132, 33);
+            this.button2.Size = new System.Drawing.Size(176, 41);
             this.button2.TabIndex = 19;
             this.button2.Text = "Detener";
             this.button2.UseVisualStyleBackColor = true;
@@ -314,9 +335,9 @@
             // 
             // VentanaPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(922, 559);
+            this.ClientSize = new System.Drawing.Size(1264, 688);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.Output);
@@ -332,6 +353,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.procesos);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "VentanaPrincipal";
             this.Text = "Simulación de Procesos";
             this.Load += new System.EventHandler(this.VentanaPrincipal_Load);
